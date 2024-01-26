@@ -1,0 +1,13 @@
+Bootstrap: localimage
+From: /apps/containers/Conda/miniconda-23.10.0-1.sif
+
+%files
+    
+%post
+
+    /opt/conda/bin/conda install pytorch torchvision torchaudio pytorch-cuda=12.1 -c pytorch-nightly -c nvidia
+
+    # Install dependencies from pip
+    pip install --upgrade pip
+    pip install -U adapter-transformers==3.2.1
+    pip install -U datasets==2.14.6
